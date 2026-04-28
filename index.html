@@ -47,9 +47,12 @@
         <h1 id="main-greeting">Time of Day, by Sevawn Guenther</h1>
         
         <h2 id="time-text">What time is it?</h2>
+        <h2 id="week-day">What day is it?</h2>
 
         <p>This page will change based on the hour of the day.</p>
-        <p>Add your explanation of what the page does, and how it works here.</p>
+        <p>This page gets the current time from your local computer. It checks what period of the day the current time falls under (morning, afternoon, evening, or night), and updates the webpage with a unique color, message, and image to match.</p>
+        <p></p>
+
 
         <img id="time-pic" src="https://dummyimage.com/300x400" alt="Time of Day Image">
     </div>
@@ -63,31 +66,58 @@
         */
 
         myDate = new Date();
-        //myHour = myDate.getHours();
-        myHour = 4
+        myHour = myDate.getHours();
+        dayNum = myDate.getDay();
         mySentence = ""; //empty string - doesn't throw error when printed, echoed, etc.
         myColor = "";
         myImg = "";
+        myDay = "";
+
+        switch(dayNum){
+            case 0:
+                myDay = "Monday";
+                break;
+            case 1:
+                myDay = "Tuesday";
+                break;
+            case 2:
+                myDay = "Wednesday";
+                break;
+            case 3:
+                myDay = "Thursday";
+                break;
+            case 4:
+                myDay = "Friday";
+                break;
+            case 5:
+                myDay = "Saturday";
+                break;
+            case 6:
+                myDay = "Sunday";
+                break;
+            default:
+                myDay = "What day is it????"
+        }
 
         if(myHour >= 5 && myHour < 12){
-            mySentence = "It's Morning!";
+            mySentence = "It's " + myDay + " Morning!";
             myColor = "#96FFFA";
             myImg = "images/morning.jpg"
         }else if(myHour >= 12 && myHour < 18){
-            mySentence = "Welcome to the afternoon";
+            mySentence = "Welcome to the " + myDay + " afternoon";
             myColor = "purple";
             myImg = "images/afternoon.jpg"
         }else if(myHour >= 18 && myHour < 23){
-            mySentence = "For now, it is evening";
+            mySentence = "For now, it is " + myDay + " evening";
             myColor = "red";
             myImg = "images/evening.jpg"
         }else if(myHour >= 23 || myHour < 5){
-            mySentence = "Night falls upon us";
+            mySentence = myDay + " night falls upon us";
             myColor = "black";
             myImg = "images/night.jpg"
         }else{
-            mySentence = "oops!"
- ;       }
+            mySentence = "oops!";       
+        }
 
 
         document.getElementById("time-text").innerHTML = mySentence;
