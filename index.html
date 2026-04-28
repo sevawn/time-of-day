@@ -96,25 +96,25 @@
                 myDay = "Sunday";
                 break;
             default:
-                myDay = "What day is it????"
+                myDay = "What day is it????";
         }
 
         if(myHour >= 5 && myHour < 12){
             mySentence = "It's " + myDay + " Morning!";
             myColor = "#96FFFA";
-            myImg = "images/morning.jpg"
+            myImg = "images/morning.jpg";
         }else if(myHour >= 12 && myHour < 18){
             mySentence = "Welcome to the " + myDay + " afternoon";
             myColor = "purple";
-            myImg = "images/afternoon.jpg"
+            myImg = "images/afternoon.jpg";
         }else if(myHour >= 18 && myHour < 23){
             mySentence = "For now, it is " + myDay + " evening";
             myColor = "red";
-            myImg = "images/evening.jpg"
+            myImg = "images/evening.jpg";
         }else if(myHour >= 23 || myHour < 5){
             mySentence = myDay + " night falls upon us";
             myColor = "black";
-            myImg = "images/night.jpg"
+            myImg = "images/night.jpg";
         }else{
             mySentence = "oops!";       
         }
